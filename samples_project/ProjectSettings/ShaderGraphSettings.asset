@@ -2,14 +2,15 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &1
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 61
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 440292c6b7b936b42b794116ef2759e0, type: 3}
+  m_Script: {fileID: 11500000, guid: de02f9e1d18f588468e474319d09a723, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: AAPK2d7fbc74c0234e7d87853f9a7536a266jjADxHV7SDwJC-LQWIVQm_AD68b8QGuoVqWLgcrzANkVM0FOidizY4nERgOVi5fr
+  customInterpolatorErrorThreshold: 32
+  customInterpolatorWarningThreshold: 16
