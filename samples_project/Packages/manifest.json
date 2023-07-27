@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.esri.arcgis-maps-sdk": "file:C:/Users/apptest/Downloads/arcgis-maps-sdk-unity-1.2.0.tgz",
     "com.unity.burst": "1.6.5",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "1.15.18",
