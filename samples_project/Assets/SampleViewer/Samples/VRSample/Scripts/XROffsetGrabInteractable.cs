@@ -5,6 +5,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class XROffsetGrabInteractable : XRGrabInteractable
 {
+
+    private Vector3 initialLocalPos;
+    private Quaternion initialLocalRot;
+
     void Start()
     {
         if (!attachTransform)
@@ -12,6 +16,11 @@ public class XROffsetGrabInteractable : XRGrabInteractable
             GameObject attachPoint = new GameObject("Offset Grab Pivot");
             attachPoint.transform.SetParent(transform, false);
             attachTransform = attachPoint.transform;
+        }
+        else
+        {
+            initialLocalPos= attachTransform.localPosition;
+            initialLocalRot= attachTransform.localRotation;
         }
     }
 
