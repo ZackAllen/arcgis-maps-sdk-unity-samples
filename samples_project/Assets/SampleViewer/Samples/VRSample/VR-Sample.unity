@@ -1061,7 +1061,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c703502c1493f5b4eb3e95b2efe0271e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: 
+  apiKey: AAPKca0387ea99ad4150a6c1cf4c37fcea19LhHwSHsMga7ZkTIxq1S2Rq_ZjP626c-BNmQvB2ewzYwTSRCfFO419RyNsoN4Fafs
   basemap: https://www.arcgis.com/home/item.html?id=ea3befe305494bb5b2acd77e1b3135dc
   basemapType: 0
   basemapAuthentication:
@@ -1095,9 +1095,58 @@ MonoBehaviour:
     IsVisible: 1
     Authentication:
       ConfigurationIndex: 0
+  - Name: Girona, Spain
+    Type: 2
+    Source: https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Girona_Spain/SceneServer
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
+  - Name: Philadelphia, Pennsylvaina
+    Type: 1
+    Source: C:\Users\dan13436\Downloads\commondata\data\Buildings_Project_v18.slpk
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
+  - Name: Christchurch, New Zealand
+    Type: 1
+    Source: https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/ccbuildings_wgs84/SceneServer
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
+  - Name: BSL1 Christchurch, New Zealand
+    Type: 7
+    Source: https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/cclibrary2_noshell_wgs84/SceneServer
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
+  - Name: BSL2 Christchurch, New Zealand
+    Type: 7
+    Source: https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/cclibrary1_wgs84/SceneServer
+    Opacity: 1
+    IsVisible: 0
+    Authentication:
+      ConfigurationIndex: 0
+  - Name: Montreal, Canada
+    Type: 1
+    Source: https://tiles.arcgis.com/tiles/P3ePLMYs2RVChkJx/arcgis/rest/services/Building_Montreal/SceneServer
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
+  - Name: Austin, Texas
+    Type: 1
+    Source: https://services6.arcgis.com/qZcUiMuWneM2q5ha/arcgis/rest/services/Austin_Pix_VR_Demo_WSL1/SceneServer
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
   originPosition:
-    x: -122.4194
-    y: 37.7749
+    x: -97.7435
+    y: 30.265
     z: 0
     SRWkid: 4326
   mapType: 1
@@ -1123,9 +1172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LocalPosition:
-    x: -13627665.271218074
+    x: -10880756.648352336
     y: 0
-    z: 4547675.354340557
+    z: 3537658.8054654864
   m_LocalRotation:
     value:
       x: 0
