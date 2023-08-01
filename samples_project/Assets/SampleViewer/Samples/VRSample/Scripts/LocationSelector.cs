@@ -33,7 +33,7 @@ public class LocationSelector : MonoBehaviour
         
         // Get a random set of coordinates from the list to spawn user in unique location
         coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
-        SetNewArcGISMapOrigin(spawnLocation.longi, spawnLocation.lati);
+        SetNewArcGISMapOrigin(135.667007f, 35.016f);
     }
 
     private void SetNewArcGISMapOrigin(float longitutde, float latitude)
