@@ -65,4 +65,20 @@ public class LocationSelector : MonoBehaviour
         }
         arcGISMapComponent.OriginPosition = new ArcGISPoint(longitutde, latitude, 0, ArcGISSpatialReference.WGS84());
     }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            SetPlayerSpawn(spawnLocations[0].longitutde, spawnLocations[0].latitude, spawnLocations[0].playerElevation);
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            SetPlayerSpawn(spawnLocations[1].longitutde, spawnLocations[1].latitude, spawnLocations[1].playerElevation);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SetPlayerSpawn(spawnLocations[2].longitutde, spawnLocations[2].latitude, spawnLocations[2].playerElevation);
+        }
+    }
 }
