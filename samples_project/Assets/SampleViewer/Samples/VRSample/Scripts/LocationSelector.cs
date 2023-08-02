@@ -47,6 +47,9 @@ public class LocationSelector : MonoBehaviour
         // Get a random set of coordinates from the list to spawn user in unique location
         coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
         SetPlayerSpawn(spawnLocation.longitutde, spawnLocation.latitude, spawnLocation.playerElevation);
+
+        // Fade player in when application first starts
+        FadeScreen.Instance.FadeIn();
     }
 
     private void SetPlayerSpawn(float longitutde, float latitude, float playerElevation)

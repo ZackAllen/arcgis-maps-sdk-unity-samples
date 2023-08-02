@@ -30,9 +30,6 @@ public class FadeScreen : MonoBehaviour
     void Start()
     {
         rendererComponent = GetComponent<Renderer>();
-
-        // Fade player in when application first starts
-        FadeIn();
     }
 
     public void FadeIn()

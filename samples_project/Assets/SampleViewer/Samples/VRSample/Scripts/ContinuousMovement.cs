@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(CharacterController))]
 public class ContinuousMovement : MonoBehaviour
@@ -15,6 +16,10 @@ public class ContinuousMovement : MonoBehaviour
     private CharacterController controller;
     [SerializeField] private float speed;
     [SerializeField] private float upSpeed;
+    [SerializeField] private InputActionProperty IncreaseSpeedAction;
+    [SerializeField] private float speedMultiplier = 2f;
+    [SerializeField] private float speedAccelerator = 0.2f;
+    private float finalSpeed;
     private XROrigin rig;
     public LayerMask groundLayer;
     private float fallSpeed;
@@ -31,17 +36,19 @@ public class ContinuousMovement : MonoBehaviour
         Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
         Vector3 direction = headYaw * new Vector3(leftInputAxis.x, 0, leftInputAxis.y);
         Vector3 up = new Vector3(0, rightInputAxis.y, 0);
-        controller.Move(direction * speed * Time.fixedDeltaTime);
+        if (IncreaseSpeedAction.action.ReadValue<float>() > 0.5f) { finalSpeed = speed * speedMultiplier; }
+        else { finalSpeed = speed;}
+        controller.Move(direction * finalSpeed * Time.fixedDeltaTime);
         controller.Move(up * upSpeed * Time.fixedDeltaTime);
 
     }
     // Update is called once per frame
     void Update()
     {
-        InputDevice leftDevice = InputDevices.GetDeviceAtXRNode(leftInputSource);
-        leftDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out leftInputAxis);
-        InputDevice rightDevice = InputDevices.GetDeviceAtXRNode(rightInputSource);
-        rightDevice.TryGetFeatureValue(CommonUsages.primary2DAxis, out rightInputAxis);
+        UnityEngine.XR.InputDevice leftDevice = InputDevices.GetDeviceAtXRNode(leftInputSource);
+        leftDevice.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out leftInputAxis);
+        UnityEngine.XR.InputDevice rightDevice = InputDevices.GetDeviceAtXRNode(rightInputSource);
+        rightDevice.TryGetFeatureValue(UnityEngine.XR.CommonUsages.primary2DAxis, out rightInputAxis);
     }
     void FollowHeadset()
     {
