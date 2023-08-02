@@ -19,6 +19,7 @@ public class ContinuousMovement : MonoBehaviour
     [SerializeField] private InputActionProperty IncreaseSpeedAction;
     [SerializeField] private float speedMultiplier = 2f;
     [SerializeField] private float speedAccelerator = 0.2f;
+    private Vector3 previousDirection = Vector3.Zero;
     private float finalSpeed;
     private XROrigin rig;
     public LayerMask groundLayer;
@@ -35,6 +36,9 @@ public class ContinuousMovement : MonoBehaviour
         FollowHeadset();
         Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
         Vector3 direction = headYaw * new Vector3(leftInputAxis.x, 0, leftInputAxis.y);
+        if (direction == previousDirection) {Debug.Log("Traveling in same direction");}
+        else {Debug.Log("NOT traveling");}
+        previousDirection = direction;
         Vector3 up = new Vector3(0, rightInputAxis.y, 0);
         if (IncreaseSpeedAction.action.ReadValue<float>() > 0.5f) { finalSpeed = speed * speedMultiplier; }
         else { finalSpeed = speed;}
