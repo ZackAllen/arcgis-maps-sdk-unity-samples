@@ -19,7 +19,9 @@ public class ContinuousMovement : MonoBehaviour
     [SerializeField] private InputActionProperty IncreaseSpeedAction;
     [SerializeField] private float speedMultiplier = 2f;
     [SerializeField] private float speedAccelerator = 0.2f;
-    private Vector3 previousDirection = Vector3.Zero;
+    [SerializeField] private float directionThreshold = 0.5f;
+    private bool stillGoingInSameDirection = false;
+    private Vector3 previousDirection = Vector3.zero;
     private float finalSpeed;
     private XROrigin rig;
     public LayerMask groundLayer;
@@ -34,14 +36,40 @@ public class ContinuousMovement : MonoBehaviour
     private void FixedUpdate()
     {
         FollowHeadset();
+
         Quaternion headYaw = Quaternion.Euler(0, rig.Camera.transform.eulerAngles.y, 0);
         Vector3 direction = headYaw * new Vector3(leftInputAxis.x, 0, leftInputAxis.y);
-        if (direction == previousDirection) {Debug.Log("Traveling in same direction");}
-        else {Debug.Log("NOT traveling");}
-        previousDirection = direction;
         Vector3 up = new Vector3(0, rightInputAxis.y, 0);
-        if (IncreaseSpeedAction.action.ReadValue<float>() > 0.5f) { finalSpeed = speed * speedMultiplier; }
-        else { finalSpeed = speed;}
+
+        if (IncreaseSpeedAction.action.ReadValue<float>() > 0.5f)
+        {
+            finalSpeed = speed * speedMultiplier;
+            /*
+            if (!stillGoingInSameDirection)
+            {
+                finalSpeed = speed * speedMultiplier;
+            }
+
+            Debug.Log(Vector3.Dot(direction, previousDirection));
+
+            if (direction != Vector3.zero && Vector3.Dot(direction, previousDirection) > 1 - directionThreshold)
+            {
+                finalSpeed += speedAccelerator;
+                stillGoingInSameDirection=true;
+            }
+            else
+            {
+                finalSpeed = speed * speedMultiplier;
+                stillGoingInSameDirection= false;
+            }*/
+        }
+        else
+        {
+            finalSpeed = speed;
+        }
+        Debug.Log("Current speed is: " + finalSpeed);
+        previousDirection = direction;
+
         controller.Move(direction * finalSpeed * Time.fixedDeltaTime);
         controller.Move(up * upSpeed * Time.fixedDeltaTime);
 
