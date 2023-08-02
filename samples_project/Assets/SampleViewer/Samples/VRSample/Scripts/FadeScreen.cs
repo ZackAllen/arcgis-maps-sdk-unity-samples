@@ -5,23 +5,45 @@ using UnityEngine;
 public class FadeScreen : MonoBehaviour
 {
     
+    // Dynamic Variables to change how fade animation plays
     [SerializeField] private float fadeDuration = 2;
     [SerializeField] private Color fadeColor;
-    private Renderer renderer;
+
+    private Renderer rendererComponent;
+
+    // Make Object into a Singleton
+    public static FadeScreen Instance { get; private set; }
+    private void Awake()
+    {
+        // If there is an instance, and it's not me, delete myself.
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {
-        renderer = GetComponent<Renderer>();
+        rendererComponent = GetComponent<Renderer>();
+
+        // Fade player in when application first starts
         FadeIn();
     }
 
     public void FadeIn()
     {
+        // Fade from 100% oppacity to 0%
         Fade(1, 0);
     }
 
     public void FadeOut()
     {
+        // Fade from 0% oppacity to 100%
         Fade(0, 1);
     }
 
@@ -35,17 +57,25 @@ public class FadeScreen : MonoBehaviour
         float timer = 0;
         Color newColor;
 
+        // While timer has not concluded, change material alpha using lerp
         while (timer <= fadeDuration)
         {
             newColor = fadeColor;
             newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
-            renderer.material.SetColor("_UnlitColor", newColor);
+            rendererComponent.material.SetColor("_UnlitColor", newColor);
             timer += Time.fixedDeltaTime;
             yield return null;
         }
 
+        // To Confrim that the alpha finishes at the correct amount
         Color lastColor = fadeColor;
         lastColor.a = alphaOut;
-        renderer.material.SetColor("_UnlitColor", lastColor);
+        rendererComponent.material.SetColor("_UnlitColor", lastColor);
+    }
+
+    // Helper function to retrieve private variable
+    public float GetFadeDuration()
+    {
+        return fadeDuration;
     }
 }

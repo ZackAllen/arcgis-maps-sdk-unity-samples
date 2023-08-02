@@ -13,6 +13,7 @@ public class ActivateGrabRay : MonoBehaviour
 
     void Update()
     {
+        // Only show the raycast grab lines when there is something in the raycast to interact with
         rightGrabRay.SetActive(rightDirectGrab.interactablesSelected.Count == 0);
         leftGrabRay.SetActive(leftDirectGrab.interactablesSelected.Count == 0);
     }

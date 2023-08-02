@@ -70,15 +70,28 @@ public class LocationSelector : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            SetPlayerSpawn(spawnLocations[0].longitutde, spawnLocations[0].latitude, spawnLocations[0].playerElevation);
+            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocations[0]));
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
-            SetPlayerSpawn(spawnLocations[1].longitutde, spawnLocations[1].latitude, spawnLocations[1].playerElevation);
+            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocations[1]));
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            SetPlayerSpawn(spawnLocations[2].longitutde, spawnLocations[2].latitude, spawnLocations[2].playerElevation);
+            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocations[2]));
         }
+    }
+
+    // Function to fade screen into static color, load into new area, then fade back out of the color
+    IEnumerator LoadIntoNewAreaWithFade(coordinates Location)
+    {
+        FadeScreen.Instance.FadeOut();
+
+        // Wait for the fade out to finish before switching locations
+        yield return new WaitForSeconds(FadeScreen.Instance.GetFadeDuration());
+
+        SetPlayerSpawn(Location.longitutde, Location.latitude, Location.playerElevation);
+
+        FadeScreen.Instance.FadeIn();
     }
 }
