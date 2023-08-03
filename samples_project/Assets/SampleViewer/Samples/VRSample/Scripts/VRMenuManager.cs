@@ -21,5 +21,6 @@ public class VRMenuManager : MonoBehaviour
 
         menu.transform.LookAt(new Vector3(VRhead.position.x, menu.transform.position.y, VRhead.position.z));
         menu.transform.forward *= -1;
+        Debug.Log("test");
     }
 }

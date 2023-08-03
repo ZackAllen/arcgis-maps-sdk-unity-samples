@@ -316,7 +316,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &274852398
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,7 +403,7 @@ RectTransform:
   m_GameObject: {fileID: 274852397}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.001, y: 0.001, z: 0.001}
+  m_LocalScale: {x: 0.0016364, y: 0.0016364, z: 0.0016364}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 885114342}
@@ -816,7 +816,7 @@ GameObject:
   - component: {fileID: 447531858}
   - component: {fileID: 447531857}
   m_Layer: 5
-  m_Name: Dropdown
+  m_Name: TurnTypeDropdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -964,7 +964,7 @@ GameObject:
   - component: {fileID: 514424360}
   - component: {fileID: 514424361}
   m_Layer: 5
-  m_Name: Slider
+  m_Name: DayTimeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,7 +1296,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1859,6 +1859,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1198265376}
   m_CullTransparentMesh: 1
+--- !u!4 &1377037080 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7674790537069970955, guid: 71c126e43990139498b8761c71893200, type: 3}
+  m_PrefabInstance: {fileID: 416216338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1395196708
 GameObject:
   m_ObjectHideFlags: 0
@@ -1893,7 +1898,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1982,8 +1987,8 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 518123399261778091, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  VRhead: {fileID: 0}
-  spawnDistance: 2
+  VRhead: {fileID: 1377037080}
+  spawnDistance: 1
 --- !u!4 &1452485858
 Transform:
   m_ObjectHideFlags: 0
@@ -2532,10 +2537,21 @@ MonoBehaviour:
   m_RepeatDelay: 0.5
   m_RepeatRate: 0.1
   m_TrackedDeviceDragThresholdMultiplier: 1.4
+  m_TrackedScrollDeltaMultiplier: 5
+  m_ActiveInputMode: 0
   m_MaxTrackedDeviceRaycastDistance: 1000
   m_EnableXRInput: 1
   m_EnableMouseInput: 1
   m_EnableTouchInput: 1
+  m_PointAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_NavigateAction: {fileID: 0}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 0}
+  m_EnableBuiltinActionsAsFallback: 1
   m_EnableGamepadInput: 1
   m_EnableJoystickInput: 1
   m_HorizontalAxis: Horizontal

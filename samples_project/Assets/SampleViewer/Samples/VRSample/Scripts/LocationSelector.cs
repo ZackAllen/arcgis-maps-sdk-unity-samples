@@ -73,15 +73,8 @@ public class LocationSelector : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocations[0]));
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocations[1]));
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocations[2]));
+            coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
+            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocation));
         }
     }
 
