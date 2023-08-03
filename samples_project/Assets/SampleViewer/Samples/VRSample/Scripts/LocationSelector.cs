@@ -69,14 +69,6 @@ public class LocationSelector : MonoBehaviour
         arcGISMapComponent.OriginPosition = new ArcGISPoint(longitutde, latitude, 0, ArcGISSpatialReference.WGS84());
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            GetLocationByName("San Francisco");
-        }
-    }
-
     // Function to fade screen into static color, load into new area, then fade back out of the color
     IEnumerator LoadIntoNewAreaWithFade(coordinates Location)
     {
@@ -106,5 +98,40 @@ public class LocationSelector : MonoBehaviour
             }
             return;
         }
+    }
+
+    public void GoToSanFran()
+    {
+        GetLocationByName("San Francisco");
+    }
+
+    public void GoToGironaSpain()
+    {
+        GetLocationByName("Girona, Spain");
+    }
+
+    public void GoToChristchurchNewZealand()
+    {
+        GetLocationByName("Christchurch, New Zealand");
+    }
+
+    public void GoToMontrealCanada()
+    {
+        GetLocationByName("Montreal, Canada");
+    }
+
+    public void GoToFiordlandNationalPark()
+    {
+        GetLocationByName("Fiordland National Park");
+    }
+    
+    public void GoToMtEverest()
+    {
+        GetLocationByName("Mt Everest");
+    }
+
+    public void GoToGrandCanyon()
+    {
+        GetLocationByName("Grand Canyon");
     }
 }
