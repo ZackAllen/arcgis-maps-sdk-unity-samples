@@ -9,6 +9,7 @@ using Esri.GameEngine.Geometry;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
+using UnityEditor;
 
 // A custom struct to hold data regarding ArcGIS map component positions
 public struct coordinates
@@ -33,6 +34,8 @@ public class LocationSelector : MonoBehaviour
     private ArcGISMapComponent arcGISMapComponent;
     private GameObject XROrigin;
 
+    [SerializeField] private GameObject menu;
+
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
     private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 150f), new coordinates("Girona, Spain", 2.8234f, 41.984f, 130f),
     new coordinates("Christchurch, New Zealand", 172.64f, -43.534f, 100f), new coordinates("Montreal, Canada", -73.5674f, 45.5019f, 110f),
@@ -43,7 +46,12 @@ public class LocationSelector : MonoBehaviour
     {
         arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
         XROrigin = FindObjectOfType<XROrigin>().gameObject;
-        
+
+        if (menu.activeSelf)
+        {
+            menu.SetActive(false);
+        }
+
         // Get a random set of coordinates from the list to spawn user in unique location
         coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
         SetPlayerSpawn(spawnLocation.longitutde, spawnLocation.latitude, spawnLocation.playerElevation);
@@ -72,6 +80,11 @@ public class LocationSelector : MonoBehaviour
     // Function to fade screen into static color, load into new area, then fade back out of the color
     IEnumerator LoadIntoNewAreaWithFade(coordinates Location)
     {
+        if (menu.activeSelf)
+        {
+            menu.SetActive(false);
+        }
+
         FadeScreen.Instance.FadeOut();
 
         // Wait for the fade out to finish before switching locations
@@ -95,8 +108,8 @@ public class LocationSelector : MonoBehaviour
             if (location.name == locationName)
             {
                 StartCoroutine(LoadIntoNewAreaWithFade(location));
+                return;
             }
-            return;
         }
     }
 

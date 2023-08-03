@@ -27,6 +27,9 @@ public class ContinuousMovement : MonoBehaviour
     public LayerMask groundLayer;
     private float fallSpeed;
     private float heightOffset = 0.2f;
+
+    [SerializeField] private GameObject menu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,11 +70,14 @@ public class ContinuousMovement : MonoBehaviour
         {
             finalSpeed = speed;
         }
-        Debug.Log("Current speed is: " + finalSpeed);
+        //Debug.Log("Current speed is: " + finalSpeed);
         previousDirection = direction;
 
-        controller.Move(direction * finalSpeed * Time.fixedDeltaTime);
-        controller.Move(up * upSpeed * Time.fixedDeltaTime);
+        if (!menu.activeSelf)
+        {
+            controller.Move(direction * finalSpeed * Time.fixedDeltaTime);
+            controller.Move(up * upSpeed * Time.fixedDeltaTime);
+        }
 
     }
     // Update is called once per frame
