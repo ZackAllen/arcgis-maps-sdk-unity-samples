@@ -73,8 +73,7 @@ public class LocationSelector : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
-            StartCoroutine(LoadIntoNewAreaWithFade(spawnLocation));
+            GetLocationByName("San Francisco");
         }
     }
 
@@ -89,5 +88,23 @@ public class LocationSelector : MonoBehaviour
         SetPlayerSpawn(Location.longitutde, Location.latitude, Location.playerElevation);
 
         FadeScreen.Instance.FadeIn();
+    }
+
+    public void GoToRandomLocation()
+    {
+        coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
+        StartCoroutine(LoadIntoNewAreaWithFade(spawnLocation));
+    }
+
+    private void GetLocationByName(string locationName)
+    {
+        foreach (coordinates location in spawnLocations)
+        {
+            if (location.name == locationName)
+            {
+                StartCoroutine(LoadIntoNewAreaWithFade(location));
+            }
+            return;
+        }
     }
 }
