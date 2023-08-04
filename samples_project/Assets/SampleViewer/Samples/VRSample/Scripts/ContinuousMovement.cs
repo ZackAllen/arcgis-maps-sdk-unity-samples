@@ -19,9 +19,7 @@ public class ContinuousMovement : MonoBehaviour
     [SerializeField] private InputActionProperty IncreaseSpeedAction;
     [SerializeField] private float speedMultiplier = 2f;
     [SerializeField] private float speedAccelerator = 0.2f;
-    [SerializeField] private float directionThreshold = 0.5f;
     private bool stillGoingInSameDirection = false;
-    private Vector3 previousDirection = Vector3.zero;
     private float finalSpeed;
     private XROrigin rig;
     public LayerMask groundLayer;
@@ -47,16 +45,12 @@ public class ContinuousMovement : MonoBehaviour
 
         if (IncreaseSpeedAction.action.ReadValue<float>() > 0.5f)
         {
-            finalSpeed = speed * speedMultiplier;
-            /*
             if (!stillGoingInSameDirection)
             {
                 finalSpeed = speed * speedMultiplier;
             }
 
-            Debug.Log(Vector3.Dot(direction, previousDirection));
-
-            if (direction != Vector3.zero && Vector3.Dot(direction, previousDirection) > 1 - directionThreshold)
+            if (direction != Vector3.zero)
             {
                 finalSpeed += speedAccelerator;
                 stillGoingInSameDirection=true;
@@ -65,14 +59,12 @@ public class ContinuousMovement : MonoBehaviour
             {
                 finalSpeed = speed * speedMultiplier;
                 stillGoingInSameDirection= false;
-            }*/
+            }
         }
         else
         {
             finalSpeed = speed;
         }
-        //Debug.Log("Current speed is: " + finalSpeed);
-        previousDirection = direction;
 
         if (!menu.activeSelf)
         {
