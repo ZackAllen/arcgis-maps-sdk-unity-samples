@@ -28,13 +28,14 @@ public class ContinuousMovement : MonoBehaviour
     private float fallSpeed;
     private float heightOffset = 0.2f;
 
-    [SerializeField] private GameObject menu;
+    private GameObject menu;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
         rig = GetComponent<XROrigin>();
+        menu = GameObject.FindWithTag("VRCanvas");
     }
     private void FixedUpdate()
     {

@@ -34,7 +34,7 @@ public class LocationSelector : MonoBehaviour
     private ArcGISMapComponent arcGISMapComponent;
     private GameObject XROrigin;
 
-    [SerializeField] private GameObject menu;
+    private GameObject menu;
 
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
     private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 150f), new coordinates("Girona, Spain", 2.8234f, 41.984f, 130f),
@@ -46,6 +46,8 @@ public class LocationSelector : MonoBehaviour
     {
         arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
         XROrigin = FindObjectOfType<XROrigin>().gameObject;
+
+        menu = GameObject.FindWithTag("VRCanvas");
 
         if (menu.activeSelf)
         {
