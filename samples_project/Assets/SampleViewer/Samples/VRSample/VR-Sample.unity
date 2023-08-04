@@ -734,6 +734,7 @@ GameObject:
   - component: {fileID: 274852400}
   - component: {fileID: 274852399}
   - component: {fileID: 274852398}
+  - component: {fileID: 274852403}
   m_Layer: 5
   m_Name: VRCanvas
   m_TagString: VRCanvas
@@ -846,6 +847,18 @@ RectTransform:
   m_AnchoredPosition: {x: -0.2072, y: 1.3712}
   m_SizeDelta: {x: 687.6074, y: 564.0217}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &274852403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274852397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 825f5e8ddea19084d84b4a99b8149e99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &283209992
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +942,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1850111048}
   m_HandleRect: {fileID: 1850111047}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0.9999999
   m_Size: 0.2664292
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -1957,12 +1970,24 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1395196709}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 0.486
+  m_Value: 50
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 274852403}
+        m_TargetAssemblyTypeName: SetLightRotation, VRSample
+        m_MethodName: SetDirectionalLightRotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &540832544
 GameObject:
   m_ObjectHideFlags: 0
@@ -4881,6 +4906,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543673160}
   m_CullTransparentMesh: 1
+--- !u!1 &1629020558
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1629020560}
+  - component: {fileID: 1629020559}
+  m_Layer: 0
+  m_Name: StaticLightingSky
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1629020559
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629020558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Profile: {fileID: 0}
+  m_StaticLightingSkyUniqueID: 0
+  m_StaticLightingCloudsUniqueID: 0
+  m_StaticLightingVolumetricClouds: 0
+--- !u!4 &1629020560
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629020558}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1641280335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5072,8 +5145,8 @@ MonoBehaviour:
     Authentication:
       ConfigurationIndex: 0
   originPosition:
-    x: -112.3535
-    y: 36.2679
+    x: -122.4194
+    y: 37.7749
     z: 0
     SRWkid: 4326
   mapType: 1
@@ -5099,9 +5172,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LocalPosition:
-    x: -12507134.408842063
+    x: -13627665.271218074
     y: 0
-    z: 4337546.889374555
+    z: 4547675.354340557
   m_LocalRotation:
     value:
       x: 0
