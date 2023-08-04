@@ -11,10 +11,12 @@ public class ActivateGrabRay : MonoBehaviour
     [SerializeField] private XRDirectInteractor leftDirectGrab;
     [SerializeField] private XRDirectInteractor rightDirectGrab;
 
+    public bool currentlyTransporting = false;
+
     void Update()
     {
-        // Only show the raycast grab lines when there is something in the raycast to interact with
-        rightGrabRay.SetActive(rightDirectGrab.interactablesSelected.Count == 0);
-        leftGrabRay.SetActive(leftDirectGrab.interactablesSelected.Count == 0);
+        // Only show the raycast grab lines when the player is not traveling to a new location and there is something in the raycast to interact with
+        rightGrabRay.SetActive(!currentlyTransporting && rightDirectGrab.interactablesSelected.Count == 0);
+        leftGrabRay.SetActive(!currentlyTransporting && leftDirectGrab.interactablesSelected.Count == 0);
     }
 }

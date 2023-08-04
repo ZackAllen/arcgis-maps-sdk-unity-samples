@@ -87,6 +87,8 @@ public class LocationSelector : MonoBehaviour
             menu.SetActive(false);
         }
 
+        XROrigin.GetComponent<ActivateGrabRay>().currentlyTransporting = true;
+
         FadeScreen.Instance.FadeOut();
 
         // Wait for the fade out to finish before switching locations
@@ -95,6 +97,8 @@ public class LocationSelector : MonoBehaviour
         SetPlayerSpawn(Location.longitutde, Location.latitude, Location.playerElevation);
 
         FadeScreen.Instance.FadeIn();
+
+        XROrigin.GetComponent<ActivateGrabRay>().currentlyTransporting = false;
     }
 
     public void GoToRandomLocation()
