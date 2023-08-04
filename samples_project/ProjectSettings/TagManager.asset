@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MarkerHead
   - VRCanvas
+  - EsriLogoCanvas
   layers:
   - Default
   - TransparentFX
