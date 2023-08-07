@@ -4653,7 +4653,6 @@ MonoBehaviour:
     m_Reference: {fileID: 518123399261778091, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   VRhead: {fileID: 1377037080}
   spawnDistance: 1
-  logoFadeOutTime: 2
 --- !u!4 &1452485858
 Transform:
   m_ObjectHideFlags: 0
@@ -5378,7 +5377,7 @@ RectTransform:
   m_GameObject: {fileID: 1669230300}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 4.721648, y: 2.2198, z: 2.2198}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 44837859}
@@ -5386,7 +5385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 43, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1669230302
@@ -5409,7 +5408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 64f1132a65f4bba41bf67048276a0928, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a3ad6ef436004ca4d9d50222a9b9c909, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -44,7 +44,9 @@ public class VRMenuManager : MonoBehaviour
         if (esriLogo)
         {
             esriLogo.SetActive(true);
-            esriLogo.transform.position = VRhead.position + new Vector3(VRhead.forward.x, 0, VRhead.forward.z).normalized * 2;
+            esriLogo.transform.position = VRhead.position + new Vector3(VRhead.forward.x, 0, VRhead.forward.z).normalized * 100;
+            esriLogo.transform.LookAt(new Vector3(VRhead.position.x, esriLogo.transform.position.y, VRhead.position.z));
+            esriLogo.transform.forward *= -1;
         }
     }
 
