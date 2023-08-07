@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 261.89948, g: 324.4541, b: 429.4325, a: 1}
+  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1581,6 +1581,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1655736736}
     m_Modifications:
+    - target: {fileID: 325419119, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 416216342, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -1601,6 +1605,10 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 7370234522989513130}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: speedAccelerator
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 7674790538359957212, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_Name
       value: XR Origin
@@ -5353,6 +5361,7 @@ GameObject:
   - component: {fileID: 1669230301}
   - component: {fileID: 1669230303}
   - component: {fileID: 1669230302}
+  - component: {fileID: 1669230304}
   m_Layer: 5
   m_Name: LogoImage
   m_TagString: Untagged
@@ -5418,6 +5427,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669230300}
   m_CullTransparentMesh: 1
+--- !u!111 &1669230304
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669230300}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 0753e2bfe929abb40aa5aabb02cc5d2e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 0753e2bfe929abb40aa5aabb02cc5d2e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1714528998
 GameObject:
   m_ObjectHideFlags: 0

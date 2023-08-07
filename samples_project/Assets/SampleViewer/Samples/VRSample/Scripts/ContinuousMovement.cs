@@ -53,17 +53,18 @@ public class ContinuousMovement : MonoBehaviour
             if (direction != Vector3.zero)
             {
                 finalSpeed += speedAccelerator;
-                stillGoingInSameDirection=true;
+                stillGoingInSameDirection = true;
             }
             else
             {
                 finalSpeed = speed * speedMultiplier;
-                stillGoingInSameDirection= false;
+                stillGoingInSameDirection = false;
             }
         }
         else
         {
             finalSpeed = speed;
+            stillGoingInSameDirection = false;
         }
 
         if (!menu.activeSelf)

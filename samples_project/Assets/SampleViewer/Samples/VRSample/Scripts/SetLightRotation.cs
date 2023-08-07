@@ -13,10 +13,8 @@ public class SetLightRotation : MonoBehaviour
 
     public void SetDirectionalLightRotation(float value)
     {
-        Debug.Log("value: " + value);
         if (directionalLight)
         {
-            Debug.Log("directionalLight.transform.rotation.eulerAngles.y: " + directionalLight.transform.rotation.eulerAngles.y);
             directionalLight.transform.rotation = Quaternion.Euler(value, directionalLight.transform.rotation.eulerAngles.y, directionalLight.transform.rotation.eulerAngles.z);
         }
     }

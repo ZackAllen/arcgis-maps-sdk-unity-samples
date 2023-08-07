@@ -35,6 +35,7 @@ public class LocationSelector : MonoBehaviour
     private GameObject XROrigin;
 
     private GameObject menu;
+    private GameObject menuManager;
 
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
     private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 150f), new coordinates("Girona, Spain", 2.8234f, 41.984f, 130f),
@@ -48,6 +49,7 @@ public class LocationSelector : MonoBehaviour
         XROrigin = FindObjectOfType<XROrigin>().gameObject;
 
         menu = GameObject.FindWithTag("VRCanvas");
+        menuManager = FindObjectOfType<VRMenuManager>().gameObject;
 
         if (menu.activeSelf)
         {
@@ -87,6 +89,8 @@ public class LocationSelector : MonoBehaviour
             menu.SetActive(false);
         }
 
+        menuManager.GetComponent<VRMenuManager>().SetCurrentlyTeleporting(true);
+
         XROrigin.GetComponent<ActivateGrabRay>().currentlyTransporting = true;
 
         FadeScreen.Instance.FadeOut();
@@ -97,6 +101,8 @@ public class LocationSelector : MonoBehaviour
         SetPlayerSpawn(Location.longitutde, Location.latitude, Location.playerElevation);
 
         FadeScreen.Instance.FadeIn();
+
+        menuManager.GetComponent<VRMenuManager>().SetCurrentlyTeleporting(false);
 
         XROrigin.GetComponent<ActivateGrabRay>().currentlyTransporting = false;
     }
