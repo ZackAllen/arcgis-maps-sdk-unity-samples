@@ -13,6 +13,7 @@ public class SetLightRotation : MonoBehaviour
 
     public void SetDirectionalLightRotation(float value)
     {
+        // Confirm reference to directional light before calling methods within it
         directionalLight = directionalLight ? directionalLight : GameObject.Find("Directional Light");
         if (directionalLight)
         {

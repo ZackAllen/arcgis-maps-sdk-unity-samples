@@ -1,40 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class VRMenuManager : MonoBehaviour
 {
-    private GameObject menu;
-    private GameObject esriLogo;
-    [SerializeField] private InputActionProperty toggleMenuButton;
     [SerializeField] private Transform VRhead;
-    [SerializeField] private float spawnDistance = 2f;
+    [Min(0)] [SerializeField] private float spawnDistance = 2f;
+    [SerializeField] private InputActionProperty toggleMenuButton;
 
     private bool currentlyTeleporting = false;
+    private GameObject esriLogo;
+    private GameObject esriMenu;
 
     private void Start()
     {
-        menu = GameObject.FindWithTag("VRCanvas");
+        // Cache member variables
+        esriMenu = GameObject.FindWithTag("VRCanvas");
         esriLogo = GameObject.FindWithTag("EsriLogoCanvas");
 
+        // Inset logo after delay in order to get correct XROrigin location reference
         Invoke("InsertLogo", 0.4f);
     }
 
     private void Update()
     {
-        if (menu)
+        if (esriMenu)
         {
             if (toggleMenuButton.action.WasPressedThisFrame() && !currentlyTeleporting)
             {
-                menu.SetActive(!menu.activeSelf);
+                esriMenu.SetActive(!esriMenu.activeSelf);
 
-                menu.transform.position = VRhead.position + new Vector3(VRhead.forward.x, 0, VRhead.forward.z).normalized * spawnDistance;
+                esriMenu.transform.position = VRhead.position + new Vector3(VRhead.forward.x, 0, VRhead.forward.z).normalized * spawnDistance;
             }
 
-            menu.transform.LookAt(new Vector3(VRhead.position.x, menu.transform.position.y, VRhead.position.z));
-            menu.transform.forward *= -1;
+            esriMenu.transform.LookAt(new Vector3(VRhead.position.x, esriMenu.transform.position.y, VRhead.position.z));
+            esriMenu.transform.forward *= -1;
         }
 
     }

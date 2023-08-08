@@ -255,6 +255,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1655736736}
     m_Modifications:
+    - target: {fileID: 325419119, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: fadeDuration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 416216342, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -267,6 +271,18 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 7370234522989513130}
+    - target: {fileID: 1107792034, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: m_UIScrollAction.m_Action.m_Id
+      value: 5ec6728c-bd5e-4a24-9ff6-1e628f15090f
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107792034, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: m_IsTrackedAction.m_Action.m_Id
+      value: 9b2a9115-f6f3-4379-8da1-dc33b032ca48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1107792034, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: m_DirectionalAnchorRotationAction.m_Action.m_Id
+      value: 1370bdd4-9ce0-4f20-b95f-dfc0c86a420c
+      objectReference: {fileID: 0}
     - target: {fileID: 1482855823, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_LocomotionProvider
       value: 
@@ -275,9 +291,33 @@ PrefabInstance:
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 7370234522989513130}
+    - target: {fileID: 1360766667333876055, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: m_text
+      value: Hold Trigger to Speed Up
+      objectReference: {fileID: 0}
     - target: {fileID: 1360766668907528230, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_text
       value: Primary Button to Open Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: increaseSpeedAction.m_Reference
+      value: 
+      objectReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: increaseSpeedAction.m_Action.m_Id
+      value: 6c729830-e77d-453b-b889-658f1399c129
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: increaseSpeedAction.m_UseReference
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: increaseSpeedAction.m_Action.m_Name
+      value: Increase Speed
       objectReference: {fileID: 0}
     - target: {fileID: 7674790538359957212, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_Name

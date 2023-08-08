@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class XROffsetGrabInteractable : XRGrabInteractable
@@ -19,8 +20,8 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         }
         else
         {
-            initialLocalPos= attachTransform.localPosition;
-            initialLocalRot= attachTransform.localRotation;
+            initialLocalPos = attachTransform.localPosition;
+            initialLocalRot = attachTransform.localRotation;
         }
     }
 

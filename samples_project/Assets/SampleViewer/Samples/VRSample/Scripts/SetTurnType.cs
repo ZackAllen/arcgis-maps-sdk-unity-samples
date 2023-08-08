@@ -5,8 +5,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class SetTurnType : MonoBehaviour
 {
-    [SerializeField] private ActionBasedSnapTurnProvider snapTurn;
+    [Header("--------Turn Scripts--------")]
     [SerializeField] private ActionBasedContinuousTurnProvider continuousTurn;
+    [SerializeField] private ActionBasedSnapTurnProvider snapTurn;
 
     public void SetTurnTypeFromIndex(int index)
     {

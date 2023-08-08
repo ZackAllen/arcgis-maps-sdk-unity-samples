@@ -4,13 +4,8 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
-    
+    [Header("----------Camera Transform----------")]
     [SerializeField] private Transform target;
-
-    void Start()
-    {
-        
-    }
 
     void Update()
     {

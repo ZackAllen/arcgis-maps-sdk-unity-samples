@@ -6,10 +6,10 @@ using Esri.ArcGISMapsSDK.Components;
 using Esri.ArcGISMapsSDK.Utils.GeoCoord;
 using Esri.GameEngine.Geometry;
 
-using UnityEngine.XR;
-using UnityEngine.XR.Interaction.Toolkit;
 using Unity.XR.CoreUtils;
 using UnityEditor;
+using UnityEngine.XR;
+using UnityEngine.XR.Interaction.Toolkit;
 
 // A custom struct to hold data regarding ArcGIS map component positions
 public struct coordinates
@@ -31,9 +31,9 @@ public struct coordinates
 
 public class LocationSelector : MonoBehaviour
 {
-    private ArcGISMapComponent arcGISMapComponent;
-    private GameObject XROrigin;
 
+    private GameObject XROrigin;
+    private ArcGISMapComponent arcGISMapComponent;
     private GameObject menu;
     private GameObject menuManager;
 
@@ -45,16 +45,13 @@ public class LocationSelector : MonoBehaviour
 
     void Start()
     {
-        arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
+        // Cache private variables
         XROrigin = FindObjectOfType<XROrigin>().gameObject;
-
+        arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
         menu = GameObject.FindWithTag("VRCanvas");
         menuManager = FindObjectOfType<VRMenuManager>().gameObject;
 
-        if (menu.activeSelf)
-        {
-            menu.SetActive(false);
-        }
+        menu.SetActive(false);
 
         // Get a random set of coordinates from the list to spawn user in unique location
         coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
@@ -68,29 +65,29 @@ public class LocationSelector : MonoBehaviour
     {
         SetNewArcGISMapOrigin(longitutde, latitude);
 
-        if (!XROrigin) { XROrigin = FindObjectOfType<XROrigin>().gameObject; }
+        // Confirm reference to XROrigin before calling method within it
+        XROrigin = XROrigin ? XROrigin : FindObjectOfType<XROrigin>().gameObject;
         XROrigin.transform.position = new Vector3(XROrigin.transform.position.x, playerElevation, XROrigin.transform.position.z);
     }
 
     private void SetNewArcGISMapOrigin(float longitutde, float latitude)
     {
-        if (!arcGISMapComponent)
-        {
-            arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
-        }
+        // Confirm reference to map component before calling method within it
+        arcGISMapComponent = arcGISMapComponent ? arcGISMapComponent : FindObjectOfType<ArcGISMapComponent>();
         arcGISMapComponent.OriginPosition = new ArcGISPoint(longitutde, latitude, 0, ArcGISSpatialReference.WGS84());
     }
 
     // Function to fade screen into static color, load into new area, then fade back out of the color
     IEnumerator LoadIntoNewAreaWithFade(coordinates Location)
     {
+        // Confirm menu is deactivated, and set bool to not allow the player to reactivate it
         if (menu.activeSelf)
         {
             menu.SetActive(false);
         }
-
         menuManager.GetComponent<VRMenuManager>().SetCurrentlyTeleporting(true);
 
+        // Set bool to deactivate grab rays while teleporting
         XROrigin.GetComponent<ActivateGrabRay>().currentlyTransporting = true;
 
         FadeScreen.Instance.FadeOut();
@@ -102,8 +99,8 @@ public class LocationSelector : MonoBehaviour
 
         FadeScreen.Instance.FadeIn();
 
+        // Reset previously changed booleans
         menuManager.GetComponent<VRMenuManager>().SetCurrentlyTeleporting(false);
-
         XROrigin.GetComponent<ActivateGrabRay>().currentlyTransporting = false;
     }
 
@@ -124,6 +121,8 @@ public class LocationSelector : MonoBehaviour
             }
         }
     }
+
+    #region Public Teleportation Functions
 
     public void GoToSanFran()
     {
@@ -159,4 +158,6 @@ public class LocationSelector : MonoBehaviour
     {
         GetLocationByName("Grand Canyon");
     }
+    
+    #endregion
 }

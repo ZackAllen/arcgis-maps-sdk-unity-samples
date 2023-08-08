@@ -5,9 +5,9 @@ using UnityEngine;
 public class FadeScreen : MonoBehaviour
 {
     
-    // Dynamic Variables to change how fade animation plays
-    [SerializeField] private float fadeDuration = 2;
+    [Header("---------Dyanmic Variables---------")]
     [SerializeField] private Color fadeColor;
+    [Min(0)] [SerializeField] private float fadeDuration = 2;
 
     private Renderer rendererComponent;
 
@@ -27,7 +27,7 @@ public class FadeScreen : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         rendererComponent = GetComponent<Renderer>();
     }
@@ -44,6 +44,7 @@ public class FadeScreen : MonoBehaviour
         Fade(0, 1);
     }
 
+    // Nest coroutine so user can normally call Fade function outside of this script
     public void Fade(float alphaIn, float alphaOut)
     {
         StartCoroutine(FadeRoutine(alphaIn, alphaOut));
