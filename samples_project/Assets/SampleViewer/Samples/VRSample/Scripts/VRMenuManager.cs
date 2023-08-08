@@ -19,7 +19,7 @@ public class VRMenuManager : MonoBehaviour
         menu = GameObject.FindWithTag("VRCanvas");
         esriLogo = GameObject.FindWithTag("EsriLogoCanvas");
 
-        Invoke("InsertLogo", 0.1f);
+        Invoke("InsertLogo", 0.4f);
     }
 
     private void Update()
@@ -44,7 +44,8 @@ public class VRMenuManager : MonoBehaviour
         if (esriLogo)
         {
             esriLogo.SetActive(true);
-            esriLogo.transform.position = VRhead.position + new Vector3(VRhead.forward.x, 0, VRhead.forward.z).normalized * 100;
+            esriLogo.transform.position = VRhead.position + new Vector3(VRhead.forward.x, 0, VRhead.forward.z).normalized * 300;
+            esriLogo.transform.position += new Vector3(0, 100, 0);
             esriLogo.transform.LookAt(new Vector3(VRhead.position.x, esriLogo.transform.position.y, VRhead.position.z));
             esriLogo.transform.forward *= -1;
         }

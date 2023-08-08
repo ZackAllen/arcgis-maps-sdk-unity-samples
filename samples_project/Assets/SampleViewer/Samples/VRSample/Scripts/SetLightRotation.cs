@@ -13,6 +13,7 @@ public class SetLightRotation : MonoBehaviour
 
     public void SetDirectionalLightRotation(float value)
     {
+        directionalLight = directionalLight ? directionalLight : GameObject.Find("Directional Light");
         if (directionalLight)
         {
             directionalLight.transform.rotation = Quaternion.Euler(value, directionalLight.transform.rotation.eulerAngles.y, directionalLight.transform.rotation.eulerAngles.z);
