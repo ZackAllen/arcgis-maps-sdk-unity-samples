@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 108b7ea9d77106e4abb9e12441293357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 2
+  fadeDuration: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &1107792029
 GameObject:
@@ -2483,8 +2483,7 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   speedMultiplier: 2
-  speedAccelerator: 0.2
-  directionThreshold: 0.5
+  speedAccelerator: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -2519,6 +2518,7 @@ MonoBehaviour:
   leftGrabRay: {fileID: 1107792029}
   leftDirectGrab: {fileID: 416216344}
   rightDirectGrab: {fileID: 416216342}
+  currentlyTransporting: 0
 --- !u!1001 &470747017
 PrefabInstance:
   m_ObjectHideFlags: 0
