@@ -17,15 +17,19 @@ public struct coordinates
     public string name;
     public float longitutde;
     public float latitude;
-    public float playerElevation;
+    public float playerSpawnX;
+    public float playerSpawnY;
+    public float playerSpawnZ;
 
     // Constructor
-    public coordinates(string name, float longitutde, float latitude, float playerElevation)
+    public coordinates(string name, float longitutde, float latitude, float playerSpawnX, float playerSpawnY, float playerSpawnZ)
     {
         this.name = name;
         this.longitutde = longitutde;
         this.latitude = latitude;
-        this.playerElevation = playerElevation;
+        this.playerSpawnX = playerSpawnX;
+        this.playerSpawnY = playerSpawnY;
+        this.playerSpawnZ = playerSpawnZ;
     }
 }
 
@@ -34,11 +38,12 @@ public class LocationSelector : MonoBehaviour
 
     private GameObject XROrigin;
     private ArcGISMapComponent arcGISMapComponent;
+    private ContinuousMovement continuousMovement;
     private GameObject menu;
     private GameObject menuManager;
 
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
-    private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 150f), new coordinates("Girona, Spain", 2.8234f, 41.984f, 130f),
+    private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 0f, 150f, 0f), new coordinates("Girona, Spain", 2.8234f, 41.984f, 130f),
     new coordinates("Christchurch, New Zealand", 172.64f, -43.534f, 100f), new coordinates("Montreal, Canada", -73.5674f, 45.5019f, 110f),
     new coordinates("Fiordland National Park", 167.266693f, -45.440842f, 1600f), new coordinates("Mt Everest", 86.925f, 27.9881f, 8850f),
     new coordinates("Grand Canyon", -112.3535f, 36.2679f, 3000f)};
@@ -48,6 +53,7 @@ public class LocationSelector : MonoBehaviour
         // Cache private variables
         XROrigin = FindObjectOfType<XROrigin>().gameObject;
         arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
+        continuousMovement = XROrigin.GetComponent<ContinuousMovement>();
         menu = GameObject.FindWithTag("VRCanvas");
         menuManager = FindObjectOfType<VRMenuManager>().gameObject;
 
@@ -55,19 +61,19 @@ public class LocationSelector : MonoBehaviour
 
         // Get a random set of coordinates from the list to spawn user in unique location
         coordinates spawnLocation = spawnLocations[Random.Range(0, spawnLocations.Count)];
-        SetPlayerSpawn(spawnLocation.longitutde, spawnLocation.latitude, spawnLocation.playerElevation);
+        SetPlayerSpawn(spawnLocation.longitutde, spawnLocation.latitude, spawnLocation.playerSpawnX, spawnLocation.playerSpawnY, spawnLocation.playerSpawnZ);
 
         // Fade player in when application first starts
         FadeScreen.Instance.FadeIn();
     }
 
-    private void SetPlayerSpawn(float longitutde, float latitude, float playerElevation)
+    private void SetPlayerSpawn(float longitutde, float latitude, float playerSpawnX, float playerSpawnY, float playerSpawnZ)
     {
         SetNewArcGISMapOrigin(longitutde, latitude);
 
         // Confirm reference to XROrigin before calling method within it
         XROrigin = XROrigin ? XROrigin : FindObjectOfType<XROrigin>().gameObject;
-        XROrigin.transform.position = new Vector3(XROrigin.transform.position.x, playerElevation, XROrigin.transform.position.z);
+        XROrigin.transform.position = new Vector3(playerSpawnX, playerSpawnY, playerSpawnZ);
     }
 
     private void SetNewArcGISMapOrigin(float longitutde, float latitude)
@@ -95,7 +101,7 @@ public class LocationSelector : MonoBehaviour
         // Wait for the fade out to finish before switching locations
         yield return new WaitForSeconds(FadeScreen.Instance.GetFadeDuration());
 
-        SetPlayerSpawn(Location.longitutde, Location.latitude, Location.playerElevation);
+        SetPlayerSpawn(Location.longitutde, Location.latitude, Location.playerSpawnX, Location.playerSpawnY, Location.playerSpawnZ);
 
         FadeScreen.Instance.FadeIn();
 
@@ -127,36 +133,64 @@ public class LocationSelector : MonoBehaviour
     public void GoToSanFran()
     {
         GetLocationByName("San Francisco");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(50f);
     }
 
     public void GoToGironaSpain()
     {
         GetLocationByName("Girona, Spain");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(50f);
     }
 
     public void GoToChristchurchNewZealand()
     {
         GetLocationByName("Christchurch, New Zealand");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(50f);
     }
 
     public void GoToMontrealCanada()
     {
         GetLocationByName("Montreal, Canada");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(50f);
     }
 
     public void GoToFiordlandNationalPark()
     {
         GetLocationByName("Fiordland National Park");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(250f);
     }
     
     public void GoToMtEverest()
     {
         GetLocationByName("Mt Everest");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(250f);
     }
 
     public void GoToGrandCanyon()
     {
         GetLocationByName("Grand Canyon");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(250f);
     }
     
     #endregion

@@ -106,4 +106,9 @@ public class ContinuousMovement : MonoBehaviour
         Vector3 capsuleCenter = transform.InverseTransformPoint(rig.Camera.transform.position);
         controller.center = new Vector3(capsuleCenter.x, controller.height / 2 + controller.skinWidth, capsuleCenter.z);
     }
+
+    public void SetSpeed(float newSpeed)
+    {
+        speed = newSpeed;
+    }
 }
