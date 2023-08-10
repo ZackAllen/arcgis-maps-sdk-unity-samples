@@ -111,4 +111,9 @@ public class ContinuousMovement : MonoBehaviour
     {
         speed = newSpeed;
     }
+
+    public void SetVerticalSpeed(float newSpeed)
+    {
+        upSpeed = newSpeed;
+    }
 }
