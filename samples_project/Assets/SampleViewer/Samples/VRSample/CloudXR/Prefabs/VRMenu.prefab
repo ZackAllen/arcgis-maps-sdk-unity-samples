@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da5cd76770d484488dddcad2e726859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  VRhead: {fileID: 0}
+  spawnDistance: 1
   toggleMenuButton:
     m_UseReference: 1
     m_Action:
@@ -58,8 +60,6 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: 518123399261778091, guid: c348712bda248c246b8c49b3db54643f, type: 3}
-  VRhead: {fileID: 0}
-  spawnDistance: 1
 --- !u!1001 &2493625742005872826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67,6 +67,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 278084794429006838}
     m_Modifications:
+    - target: {fileID: 2396152234448659640, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 313
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152234448659641, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToPhiladelphiaPennsylvaina
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152234448659643, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_Name
+      value: PhiliButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2396152234794685417, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -91,6 +103,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2396152234925357907, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_text
+      value: Philadelphia, Pennsylvaina
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152234925357909, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_Name
+      value: PhiliText
+      objectReference: {fileID: 0}
     - target: {fileID: 2396152235008163532, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -103,6 +123,22 @@ PrefabInstance:
       propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2396152235426477386, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_Name
+      value: MontrealText
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152235477653874, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_Name
+      value: MontrealButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152235477653875, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 102.9999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152235721925450, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -107
+      objectReference: {fileID: 0}
     - target: {fileID: 2396152235725022672, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -110,6 +146,14 @@ PrefabInstance:
     - target: {fileID: 2396152235725022672, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152235891693220, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_Size
+      value: 0.26642922
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152235891693220, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_Value
+      value: 1.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 2396152235900112259, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
       propertyPath: m_Name
@@ -198,6 +242,10 @@ PrefabInstance:
     - target: {fileID: 2396152235900112284, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2396152235993786399, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.000091552734
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 585dfc33d669dc141a047fc8003b3462, type: 3}
