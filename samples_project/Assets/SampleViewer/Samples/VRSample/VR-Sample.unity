@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 262.3369, g: 325.0498, b: 430.21924, a: 1}
+  m_IndirectSpecularColor: {r: 1451.4795, g: 1550.0059, b: 1780.4648, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -382,6 +382,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1020106014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 278084795472422201, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
+  m_PrefabInstance: {fileID: 278084795747258132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1020106018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1020106014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482749c8018bca147b40dd53a98bbd82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1377037080 stripped
@@ -5551,8 +5568,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2065133453}
   m_Layer: 7
-  m_Name: RainParticles
-  m_TagString: Untagged
+  m_Name: WeatherParticles
+  m_TagString: WeatherParticles
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
