@@ -43,10 +43,10 @@ public class LocationSelector : MonoBehaviour
     private GameObject menuManager;
 
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
-    private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 0f, 150f, 0f), new coordinates("Girona, Spain", 2.8234f, 41.984f, 130f),
-    new coordinates("Christchurch, New Zealand", 172.64f, -43.534f, 100f), new coordinates("Montreal, Canada", -73.5674f, 45.5019f, 110f),
-    new coordinates("Fiordland National Park", 167.266693f, -45.440842f, 1600f), new coordinates("Mt Everest", 86.925f, 27.9881f, 8850f),
-    new coordinates("Grand Canyon", -112.3535f, 36.2679f, 3000f)};
+    private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 0f, 150f, 0f), new coordinates("Philadelphia, Pennsylvaina", -75.17f, 39.955f, 38f, 83f, 12f),
+    new coordinates("Christchurch, New Zealand", 172.64f, -43.534f, -331.45f, 40.8f, 542.1f), new coordinates("Denver, Colorado", -104.99f, 39.735f, 220f, 1650f, 220f),
+    new coordinates("Fiordland National Park", 167.266693f, -45.440842f, 0f, 1600f, 0f), new coordinates("Mt Everest", 86.925f, 27.9881f, 0f, 8850f, 0f),
+    new coordinates("Grand Canyon", -112.3535f, 36.2679f, 0f, 3000f, 0f)};
 
     void Start()
     {
@@ -139,9 +139,9 @@ public class LocationSelector : MonoBehaviour
         continuousMovement.SetSpeed(50f);
     }
 
-    public void GoToGironaSpain()
+    public void GoToPhiladelphiaPennsylvaina()
     {
-        GetLocationByName("Girona, Spain");
+        GetLocationByName("Philadelphia, Pennsylvaina");
 
         // Confirm reference to continuousMovement component before calling method within it
         continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
@@ -157,9 +157,9 @@ public class LocationSelector : MonoBehaviour
         continuousMovement.SetSpeed(50f);
     }
 
-    public void GoToMontrealCanada()
+    public void GoToDenverColorado()
     {
-        GetLocationByName("Montreal, Canada");
+        GetLocationByName("Denver, Colorado");
 
         // Confirm reference to continuousMovement component before calling method within it
         continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
