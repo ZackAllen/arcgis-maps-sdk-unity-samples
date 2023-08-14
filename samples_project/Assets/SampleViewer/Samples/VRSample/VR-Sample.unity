@@ -377,6 +377,11 @@ PrefabInstance:
       objectReference: {fileID: 681320081}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c126e43990139498b8761c71893200, type: 3}
+--- !u!1 &650803850 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7674790538359957212, guid: 71c126e43990139498b8761c71893200, type: 3}
+  m_PrefabInstance: {fileID: 416216338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &681320081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3017294104001733366, guid: 7c54e74494ab92a47a490a7f58dc81c1, type: 3}
@@ -398,6 +403,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7674790538359957214, guid: 71c126e43990139498b8761c71893200, type: 3}
   m_PrefabInstance: {fileID: 416216338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1406080827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650803850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa8e20d2ea3494ba5e896071262245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raycastInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Raycast Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 12456f26-8447-4e1a-b785-df51cdff53b4
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1629020558
 GameObject:
   m_ObjectHideFlags: 1
