@@ -6,6 +6,7 @@ public class LightingManager : MonoBehaviour
 {
     public GameObject HDRPLighting;
     public GameObject URPLighting;
+    public bool IsCloudXRDemo;
 
     private bool ActivePipelineIsHDRP()
     {
@@ -14,7 +15,7 @@ public class LightingManager : MonoBehaviour
 
     void Start()
     {
-        if (ActivePipelineIsHDRP())
+        if (IsCloudXRDemo || ActivePipelineIsHDRP())
         {
 #if USE_HDRP_PACKAGE
             var HDRPLightingObject = Instantiate(HDRPLighting, transform);
