@@ -10,7 +10,9 @@ using static UnityEngine.Rendering.DebugUI;
 public class SetWeatherType : MonoBehaviour
 {
     private Volume volume;
+    private VolumetricClouds volumetricClouds; 
     private GameObject weatherParticles;
+
     private void Start()
     {
         weatherParticles = GameObject.FindWithTag("WeatherParticles");
@@ -20,7 +22,7 @@ public class SetWeatherType : MonoBehaviour
     private void GetVolume()
     {
         volume = FindObjectOfType<Volume>();
-        if (volume.sharedProfile.TryGet<VolumetricClouds>(out var clouds))
+        if (volume)
         {
             SetWeatherTypeFromIndex(0);
         }
@@ -33,20 +35,20 @@ public class SetWeatherType : MonoBehaviour
         if (index == 0)
         {
             weatherParticles.SetActive(false);
-            if (volume.sharedProfile.TryGet<VolumetricClouds>(out var clouds))
+            if (volume.sharedProfile.TryGet<VolumetricClouds>(out volumetricClouds))
             {
-                clouds.enable.overrideState = true;
-                clouds.enable.value = false;
+                volumetricClouds.enable.overrideState = true;
+                volumetricClouds.enable.value = false;
                 Debug.Log("turn off clouds");
             }
         }
         else if (index == 1)
         {
             weatherParticles.SetActive(true);
-            if (volume.sharedProfile.TryGet<VolumetricClouds>(out var clouds))
+            if (volume.sharedProfile.TryGet<VolumetricClouds>(out volumetricClouds))
             {
-                clouds.enable.overrideState = true;
-                clouds.enable.value = true;
+                volumetricClouds.enable.overrideState = true;
+                volumetricClouds.enable.value = true;
                 Debug.Log("turn on clouds");
             }
         }

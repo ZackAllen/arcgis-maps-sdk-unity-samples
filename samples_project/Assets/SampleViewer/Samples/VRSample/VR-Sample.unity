@@ -533,14 +533,14 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Philadelphia, Pennsylvaina
     Type: 1
-    Source: C:\Users\Administrator\Desktop\SLPKs\Buildings_Project_v18.slpk
+    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\Buildings_Project_v18.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
       ConfigurationIndex: 0
   - Name: Christchurch, New Zealand
     Type: 1
-    Source: C:\Users\Administrator\Desktop\SLPKs\ccbuildings_wgs84.slpk
+    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\ccbuildings_wgs84.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
@@ -554,7 +554,7 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Montreal, Canada
     Type: 1
-    Source: C:\Users\Administrator\Desktop\SLPKs\Montreal_Buildings_v17_21778.slpk
+    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\Montreal_Buildings_v17_21778.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
@@ -764,8 +764,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047815655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 16.4, z: 0}
-  m_LocalScale: {x: 2.6399, y: 1, z: 2.2937}
+  m_LocalPosition: {x: 0, y: 40.8, z: 0}
+  m_LocalScale: {x: 38.854168, y: 14.718046, z: 33.75878}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2065133453}
@@ -1095,8 +1095,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.05
-      minScalar: 0.05
+      scalar: 0.01
+      minScalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1148,8 +1148,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 1
-      minScalar: 1.5
+      scalar: 0.5
+      minScalar: 0.7
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1411,7 +1411,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 10000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 0
@@ -1677,7 +1677,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 200
+      scalar: 600
       minScalar: 10
       maxCurve:
         serializedVersion: 2
