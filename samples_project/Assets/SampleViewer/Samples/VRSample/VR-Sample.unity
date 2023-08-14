@@ -384,23 +384,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1020106014 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 278084795472422201, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
-  m_PrefabInstance: {fileID: 278084795747258132}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1020106018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020106014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482749c8018bca147b40dd53a98bbd82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1377037080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7674790537069970955, guid: 71c126e43990139498b8761c71893200, type: 3}
@@ -516,6 +499,7 @@ MonoBehaviour:
     ShapeDimensions:
       x: 0
       y: 0
+    UseOriginAsCenter: 0
   layers:
   - Name: San Fran
     Type: 1
@@ -764,7 +748,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047815655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 40.8, z: 0}
+  m_LocalPosition: {x: 0, y: 716, z: 0}
   m_LocalScale: {x: 38.854168, y: 14.718046, z: 33.75878}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1148,8 +1132,8 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.5
-      minScalar: 0.7
+      scalar: 0.3
+      minScalar: 0.5
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1411,7 +1395,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 10000
+    maxNumParticles: 15000
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 1
     rotation3D: 0
@@ -1677,7 +1661,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 600
+      scalar: 800
       minScalar: 10
       maxCurve:
         serializedVersion: 2

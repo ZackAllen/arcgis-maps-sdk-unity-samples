@@ -35,7 +35,7 @@ public class SetWeatherType : MonoBehaviour
         if (index == 0)
         {
             weatherParticles.SetActive(false);
-            if (volume.sharedProfile.TryGet<VolumetricClouds>(out volumetricClouds))
+            if (volume.profile.TryGet<VolumetricClouds>(out volumetricClouds))
             {
                 volumetricClouds.enable.overrideState = true;
                 volumetricClouds.enable.value = false;
@@ -45,7 +45,7 @@ public class SetWeatherType : MonoBehaviour
         else if (index == 1)
         {
             weatherParticles.SetActive(true);
-            if (volume.sharedProfile.TryGet<VolumetricClouds>(out volumetricClouds))
+            if (volume.profile.TryGet<VolumetricClouds>(out volumetricClouds))
             {
                 volumetricClouds.enable.overrideState = true;
                 volumetricClouds.enable.value = true;
