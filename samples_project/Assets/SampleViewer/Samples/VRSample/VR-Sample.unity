@@ -491,7 +491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apiKey: AAPKca0387ea99ad4150a6c1cf4c37fcea19LhHwSHsMga7ZkTIxq1S2Rq_ZjP626c-BNmQvB2ewzYwTSRCfFO419RyNsoN4Fafs
-  basemap: https://www.arcgis.com/home/item.html?id=ea3befe305494bb5b2acd77e1b3135dc
+  basemap: https://www.arcgis.com/home/item.html?id=c7d2b5c334364e8fb5b73b0f4d6a779b
   basemapType: 0
   basemapAuthentication:
     ConfigurationIndex: -1
@@ -516,7 +516,6 @@ MonoBehaviour:
     ShapeDimensions:
       x: 0
       y: 0
-    UseOriginAsCenter: 0
   layers:
   - Name: San Fran
     Type: 1
@@ -534,21 +533,14 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Philadelphia, Pennsylvaina
     Type: 1
-    Source: C:\Users\apptest\Desktop\SLPKs\Buildings_Project_v18.slpk
+    Source: C:\Users\Administrator\Desktop\SLPKs\Buildings_Project_v18.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
       ConfigurationIndex: 0
   - Name: Christchurch, New Zealand
     Type: 1
-    Source: C:\Users\apptest\Desktop\SLPKs\ccbuildings_wgs84.slpk
-    Opacity: 1
-    IsVisible: 1
-    Authentication:
-      ConfigurationIndex: 0
-  - Name: BSL1 Christchurch, New Zealand
-    Type: 7
-    Source: https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/cclibrary2_noshell_wgs84/SceneServer
+    Source: C:\Users\Administrator\Desktop\SLPKs\ccbuildings_wgs84.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
@@ -557,12 +549,12 @@ MonoBehaviour:
     Type: 7
     Source: https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/cclibrary1_wgs84/SceneServer
     Opacity: 1
-    IsVisible: 0
+    IsVisible: 1
     Authentication:
       ConfigurationIndex: 0
   - Name: Montreal, Canada
     Type: 1
-    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\Montreal_Buildings_v17_21778.slpk
+    Source: C:\Users\Administrator\Desktop\SLPKs\Montreal_Buildings_v17_21778.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
