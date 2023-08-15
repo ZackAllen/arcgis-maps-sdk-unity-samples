@@ -12,19 +12,22 @@ using System.Threading.Tasks;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine.InputSystem;
-using static UnityEngine.Rendering.DebugUI;
 
 public class RayCastLocation : MonoBehaviour
 {
+    [Header("------------Prefabs------------")]
     [SerializeField] private GameObject addressCardTemplate;
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private float maxRayDistance = 35;
     [SerializeField] private GameObject locationMarkerTemplate;
-    [SerializeField] private float locationMarkerScale = 1;
-    [SerializeField] private Transform raycastHand;
-    [SerializeField] private InputActionProperty raycastInput;
-    [SerializeField] private LayerMask raycastLayer;
+    [SerializeField] private GameObject predictionRay;
 
+    [Header("------------Variables------------")]
+    [SerializeField] private float locationMarkerScale = 1;
+    //[SerializeField] private float maxRayDistance = 35;
+    [SerializeField] private InputActionProperty raycastInput;
+    //[SerializeField] private LayerMask raycastLayer;
+
+    private Camera mainCamera;
+    private Transform raycastHand;
     private GameObject queryLocationGO;
 
     private ArcGISMapComponent arcGISMapComponent;
@@ -34,10 +37,15 @@ public class RayCastLocation : MonoBehaviour
     void Start()
     {
         arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
+        mainCamera = Camera.main;
+        raycastHand = this.transform;
     }
 
     private void Update()
     {
+        // Set Ray to only be visible when you are able to raycast
+        predictionRay.SetActive(Physics.Raycast(raycastHand.position, raycastHand.forward, out RaycastHit hit));
+
         if (raycastInput.action.WasPressedThisFrame())
         {
             GetAddress();
@@ -48,13 +56,11 @@ public class RayCastLocation : MonoBehaviour
     {
         if (Physics.Raycast(raycastHand.position, raycastHand.forward, out RaycastHit hit))
         {
-            Debug.Log(hit.point);
             Vector3 direction = (hit.point - mainCamera.transform.position);
             float distanceFromCamera = Vector3.Distance(mainCamera.transform.position, hit.point);
             float scale = distanceFromCamera * locationMarkerScale / 5000; // Scale the marker based on its distance from camera
             SetupQueryLocationGameObject(locationMarkerTemplate, hit.point, mainCamera.transform.rotation, new Vector3(scale, scale, scale));
             await ReverseGeocode(HitToGeoPosition(hit));
-            Debug.Log(responseAddress);
         }
     }
 
@@ -85,7 +91,7 @@ public class RayCastLocation : MonoBehaviour
         {
             var response = JObject.Parse(results);
             var error = response.SelectToken("error");
-            Debug.Log((string)error.SelectToken("message"));
+            responseAddress = (string)error.SelectToken("message");
         }
         else
         {
@@ -96,7 +102,7 @@ public class RayCastLocation : MonoBehaviour
 
             if (string.IsNullOrEmpty(responseAddress))
             {
-                Debug.Log("Query did not return a valid response.");
+                responseAddress = "Query did not return a valid response.";
             }
             else
             {
@@ -146,7 +152,6 @@ public class RayCastLocation : MonoBehaviour
         }
 
         queryLocationGO = Instantiate(templateGO, location, rotation, arcGISMapComponent.transform);
-        Debug.Log(queryLocationGO);
         queryLocationGO.transform.localScale = scale;
 
         if (!queryLocationGO.TryGetComponent<ArcGISLocationComponent>(out MarkerLocComp))

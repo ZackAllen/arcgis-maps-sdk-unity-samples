@@ -16,6 +16,8 @@ public class SetWeatherType : MonoBehaviour
     private void Start()
     {
         weatherParticles = GameObject.FindWithTag("WeatherParticles");
+
+        // Delay on volume cache to give it time to instantiate
         Invoke(nameof(GetVolume), 0.5f);
     }
 
@@ -24,32 +26,33 @@ public class SetWeatherType : MonoBehaviour
         volume = FindObjectOfType<Volume>();
         if (volume)
         {
+            // Start with sunny weather
             SetWeatherTypeFromIndex(0);
         }
     }
 
     public void SetWeatherTypeFromIndex(int index)
     {
+
         weatherParticles = weatherParticles ? weatherParticles : GameObject.FindWithTag("WeatherParticles");
         volume = volume ? volume : FindObjectOfType<Volume>();
-        if (index == 0)
+
+        if (index == 0) //Sunny
         {
             weatherParticles.SetActive(false);
             if (volume.profile.TryGet<VolumetricClouds>(out volumetricClouds))
             {
                 volumetricClouds.enable.overrideState = true;
                 volumetricClouds.enable.value = false;
-                Debug.Log("turn off clouds");
             }
         }
-        else if (index == 1)
+        else if (index == 1) //Rainy
         {
             weatherParticles.SetActive(true);
             if (volume.profile.TryGet<VolumetricClouds>(out volumetricClouds))
             {
                 volumetricClouds.enable.overrideState = true;
                 volumetricClouds.enable.value = true;
-                Debug.Log("turn on clouds");
             }
         }
     }
