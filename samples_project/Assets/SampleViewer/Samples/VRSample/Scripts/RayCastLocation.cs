@@ -9,13 +9,23 @@ using Esri.HPFramework;
 using Newtonsoft.Json.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine.InputSystem;
 using static UnityEngine.Rendering.DebugUI;
 
 public class RayCastLocation : MonoBehaviour
 {
+    [SerializeField] private GameObject addressCardTemplate;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private float maxRayDistance = 35;
+    [SerializeField] private GameObject locationMarkerTemplate;
+    [SerializeField] private float locationMarkerScale = 1;
+    [SerializeField] private Transform raycastHand;
     [SerializeField] private InputActionProperty raycastInput;
+    [SerializeField] private LayerMask raycastLayer;
+
+    private GameObject queryLocationGO;
 
     private ArcGISMapComponent arcGISMapComponent;
     private string responseAddress = "";
@@ -36,8 +46,13 @@ public class RayCastLocation : MonoBehaviour
 
     private async void GetAddress()
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit))
+        if (Physics.Raycast(raycastHand.position, raycastHand.forward, out RaycastHit hit))
         {
+            Debug.Log(hit.point);
+            Vector3 direction = (hit.point - mainCamera.transform.position);
+            float distanceFromCamera = Vector3.Distance(mainCamera.transform.position, hit.point);
+            float scale = distanceFromCamera * locationMarkerScale / 5000; // Scale the marker based on its distance from camera
+            SetupQueryLocationGameObject(locationMarkerTemplate, hit.point, mainCamera.transform.rotation, new Vector3(scale, scale, scale));
             await ReverseGeocode(HitToGeoPosition(hit));
             Debug.Log(responseAddress);
         }
@@ -83,6 +98,10 @@ public class RayCastLocation : MonoBehaviour
             {
                 Debug.Log("Query did not return a valid response.");
             }
+            else
+            {
+                CreateAddressCard();
+            }
         }
     }
 
@@ -108,4 +127,53 @@ public class RayCastLocation : MonoBehaviour
         string results = await response.Content.ReadAsStringAsync();
         return results;
     }
+
+    /// <summary>
+    /// Create an instance of the template game object and sets the transform based on input arguments. Ensures the game object has an ArcGISLocation component attached.
+    /// </summary>
+    /// <param name="templateGO"></param>
+    /// <param name="location"></param>
+    /// <param name="rotation"></param>
+    /// <param name="scale"></param>
+    private void SetupQueryLocationGameObject(GameObject templateGO,
+        Vector3 location = new Vector3(), Quaternion rotation = new Quaternion(), Vector3 scale = new Vector3())
+    {
+        ArcGISLocationComponent MarkerLocComp;
+
+        if (queryLocationGO != null)
+        {
+            Destroy(queryLocationGO);
+        }
+
+        queryLocationGO = Instantiate(templateGO, location, rotation, arcGISMapComponent.transform);
+        Debug.Log(queryLocationGO);
+        queryLocationGO.transform.localScale = scale;
+
+        if (!queryLocationGO.TryGetComponent<ArcGISLocationComponent>(out MarkerLocComp))
+        {
+            MarkerLocComp = queryLocationGO.AddComponent<ArcGISLocationComponent>();
+        }
+        MarkerLocComp.enabled = true;
+    }
+
+    /// <summary>
+    /// Create a visual cue for showing the address/description returned for the query. 
+    /// </summary>
+    /// <param name="isAddressQuery"></param>
+    void CreateAddressCard()
+    {
+        GameObject card = Instantiate(addressCardTemplate, queryLocationGO.transform);
+        TextMeshProUGUI t = card.GetComponentInChildren<TextMeshProUGUI>();
+
+        // Based on the type of the query set the location, rotation and scale of the text relative to the query location game object  
+        float localScale = 3.5f / locationMarkerScale;
+        card.transform.localPosition = new Vector3(0, 300f / locationMarkerScale, -300f / locationMarkerScale);
+        card.transform.localScale = new Vector3(localScale, localScale, localScale);
+
+        if (t != null)
+        {
+            t.text = responseAddress;
+        }
+    }
+
 }

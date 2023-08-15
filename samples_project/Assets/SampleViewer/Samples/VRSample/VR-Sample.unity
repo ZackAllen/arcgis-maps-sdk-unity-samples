@@ -252,6 +252,71 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c54e74494ab92a47a490a7f58dc81c1, type: 3}
+--- !u!1 &230099473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 230099474}
+  - component: {fileID: 230099475}
+  m_Layer: 0
+  m_Name: LocationRay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &230099474
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230099473}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 425022394}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &230099475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230099473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29fa8e20d2ea3494ba5e896071262245, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  addressCardTemplate: {fileID: 8794308439353200324, guid: 3eb1c314cee067045a5a803a123cf342, type: 3}
+  mainCamera: {fileID: 1377037081}
+  maxRayDistance: 35
+  locationMarkerTemplate: {fileID: 1394836214669357477, guid: 462c61f22be238f4da9ee0837f633a00, type: 3}
+  locationMarkerScale: 250
+  raycastHand: {fileID: 230099474}
+  raycastInput:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Raycast Input
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5af99c91-221a-4410-9c85-4f2c1c40c65c
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1001 &416216338
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -377,6 +442,11 @@ PrefabInstance:
       objectReference: {fileID: 681320081}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 71c126e43990139498b8761c71893200, type: 3}
+--- !u!4 &425022394 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7674790536996165079, guid: 71c126e43990139498b8761c71893200, type: 3}
+  m_PrefabInstance: {fileID: 416216338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &650803850 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7674790538359957212, guid: 71c126e43990139498b8761c71893200, type: 3}
@@ -398,6 +468,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7674790537069970955, guid: 71c126e43990139498b8761c71893200, type: 3}
   m_PrefabInstance: {fileID: 416216338}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &1377037081 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7674790537069970964, guid: 71c126e43990139498b8761c71893200, type: 3}
+  m_PrefabInstance: {fileID: 416216338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1406080821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7674790538359957214, guid: 71c126e43990139498b8761c71893200, type: 3}
@@ -410,11 +485,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 650803850}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 29fa8e20d2ea3494ba5e896071262245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addressCardTemplate: {fileID: 0}
+  mainCamera: {fileID: 0}
+  maxRayDistance: 35
+  locationMarkerTemplate: {fileID: 0}
+  locationMarkerScale: 1
+  raycastHand: {fileID: 0}
   raycastInput:
     m_UseReference: 1
     m_Action:
@@ -427,6 +508,9 @@ MonoBehaviour:
       m_SingletonActionBindings: []
       m_Flags: 0
     m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &1629020558
 GameObject:
   m_ObjectHideFlags: 1
@@ -532,6 +616,7 @@ MonoBehaviour:
     ShapeDimensions:
       x: 0
       y: 0
+    UseOriginAsCenter: 0
   layers:
   - Name: San Fran
     Type: 1
