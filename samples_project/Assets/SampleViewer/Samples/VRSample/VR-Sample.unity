@@ -532,7 +532,6 @@ MonoBehaviour:
     ShapeDimensions:
       x: 0
       y: 0
-    UseOriginAsCenter: 0
   layers:
   - Name: San Fran
     Type: 1
@@ -550,14 +549,14 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Philadelphia, Pennsylvaina
     Type: 1
-    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\Buildings_Project_v18.slpk
+    Source: C:\Users\Administrator\Desktop\SLPKs\Buildings_Project_v18.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
       ConfigurationIndex: 0
   - Name: Christchurch, New Zealand
     Type: 1
-    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\ccbuildings_wgs84.slpk
+    Source: C:\Users\Administrator\Desktop\SLPKs\ccbuildings_wgs84.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
@@ -571,7 +570,7 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Montreal, Canada
     Type: 1
-    Source: C:\Users\dan13436\OneDrive - Esri\Desktop\SLPKS\Montreal_Buildings_v17_21778.slpk
+    Source: C:\Users\Administrator\Desktop\SLPKs\Montreal_Buildings_v17_21778.slpk
     Opacity: 1
     IsVisible: 1
     Authentication:
