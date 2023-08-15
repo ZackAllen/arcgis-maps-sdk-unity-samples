@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class RayCastLocation : MonoBehaviour
 {
     [SerializeField] private InputActionProperty raycastInput;
+    [SerializeField] private Geocoder geocoder;
 
     void Start()
     {
@@ -17,7 +18,13 @@ public class RayCastLocation : MonoBehaviour
     {
         if (raycastInput.action.WasPressedThisFrame())
         {
-            Debug.Log("test");
+            if (Physics.Raycast(transform.position, -Vector3.up, out RaycastHit hit))
+            {
+                float offsetDistance = hit.distance;
+                Debug.Log(offsetDistance);
+                Debug.Log(geocoder.HitToGeoPosition(hit));
+                geocoder.ReverseGeocode(geocoder.HitToGeoPosition(hit));
+            }
         }
     }
 }

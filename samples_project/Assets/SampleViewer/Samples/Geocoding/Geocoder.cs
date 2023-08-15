@@ -299,7 +299,7 @@ public class Geocoder : MonoBehaviour
     /// </summary>
     /// <param name="hit"></param>
     /// <returns></returns>
-    private ArcGISPoint HitToGeoPosition(RaycastHit hit, float yOffset = 0)
+    public ArcGISPoint HitToGeoPosition(RaycastHit hit, float yOffset = 0)
     {
         var worldPosition = math.inverse(arcGISMapComponent.WorldMatrix).HomogeneousTransformPoint(hit.point.ToDouble3());
         var geoPosition = arcGISMapComponent.View.WorldToGeographic(worldPosition);
