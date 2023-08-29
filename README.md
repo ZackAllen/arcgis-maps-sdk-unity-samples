@@ -1,4 +1,4 @@
-# arcgis-maps-sdk-unity-samples
+# Esri CloudXR Demo
 
 ![image](arcgis-maps-sdk-unity-samples.png)
 
