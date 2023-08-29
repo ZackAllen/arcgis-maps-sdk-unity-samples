@@ -5,7 +5,7 @@
 Here is a VR demo developed by ESRI within the Unity Engine. It is built off the [ArcGIS SDK Unity VRSample](https://github.com/Esri/arcgis-maps-sdk-unity-samples/tree/main/samples_project/Assets/SampleViewer/Samples/VRSample), incorporating more intractability and diverse features in order to utilize the demo in tandem with [Nvidia’s CloudXR Application](https://developer.nvidia.com/cloudxr-sdk). The main branch is configured to work with our ArcGIS plugin version 1.3.0. If you would like to build the application to a VR headset you would need to switch to the URPBuild branch since Androids do not support the HD Rendering Pipeline we have implemented in the main branch.
 
 ## Features
-* Continuous viewing the movement in 8 cardinal directions.
+* Continuous viewing and movement in 8 cardinal directions.
 * Choice between continuous or snap turning.
 * Ability to explore 7 unique real world locations, showcasing Esri data and map components.
 * Ability to change the time of day, and therefore the lighting.
@@ -25,7 +25,7 @@ Here is a VR demo developed by ESRI within the Unity Engine. It is built off the
 
 ![image](import-samples.png)
 
-6. If there are still errors, locate the ArcGISMapsSDK Assembly Definition within the folder `Assets -> Samples -> ArcGIS Maps SDK for Unity -> 1.3.0 -> Sample Content -> Arc GIS Maps SDK.Samples (asmdef)`.
+6. If there are still errors, locate the ArcGISMapsSDK Assembly Definition within the folder `Assets -> Samples -> ArcGIS Maps SDK for Unity -> 1.3.0 -> Sample Content -> Arc GIS Maps SDK.Samples (asmdef)` and add the `Unity.InputSystem` asmdef to the references. Make sure to click *Apply* at the bottom.
 
 7. Launch Unity and open the `VR Sample` level.
 
