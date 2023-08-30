@@ -29,7 +29,7 @@ Here is a VR demo developed by ESRI within the Unity Engine. It is built off the
 
 7. Launch Unity and open the `VR Sample` level.
 
-8. In the heirarchy select the `ArcGISMap` Game Object and then in the inspector set your API Key. You can learn more about [API keys](https://developers.arcgis.com/documentation/mapping-apis-and-services/security/api-keys/) and [Accounts](https://developers.arcgis.com/documentation/mapping-apis-and-services/deployment/accounts/) in the _Mapping APIs and location services_ guide.
+8. In the hierarchy select the `ArcGISMap` Game Object. In the inspector set the API key on the ArcGISMap Component. You can learn more about [API keys](https://developers.arcgis.com/documentation/mapping-apis-and-services/security/api-keys/) and [Accounts](https://developers.arcgis.com/documentation/mapping-apis-and-services/deployment/accounts/) in the _Mapping APIs and location services_ guide.
 
 9. (Optional) If you want to be able to open the `.cs` files in this project and have intellisense recognize variable correctly, in Unity navigate to `Edit -> Preferences -> External Tools -> Generate .csproj files for 'local tarball`
 
