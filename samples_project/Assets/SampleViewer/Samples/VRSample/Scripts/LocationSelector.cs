@@ -44,7 +44,7 @@ public class LocationSelector : MonoBehaviour
     private GameObject menuManager;
 
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
-    private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 0f, 150f, 0f), new coordinates("Philadelphia, Pennsylvaina", -75.17f, 39.955f, 38f, 83f, 12f),
+    private List<coordinates> spawnLocations = new List<coordinates> {new coordinates("San Francisco", -122.4194f, 37.7749f, 0f, 150f, 0f), new coordinates("Hong Kong, China", 114.177216f, 22.302711f, 0f, 130f, 0f),
     new coordinates("Christchurch, New Zealand", 172.64f, -43.534f, -331.45f, 40.8f, 542.1f), new coordinates("Montreal, Canada", -73.5674f, 45.5019f, 0f, 110f, 0f),
     new coordinates("Fiordland National Park", 167.266693f, -45.440842f, 0f, 1600f, 0f), new coordinates("Mt Everest", 86.925f, 27.9881f, 0f, 8850f, 0f),
     new coordinates("Grand Canyon", -112.3535f, 36.2679f, 0f, 3000f, 0f)};
@@ -142,8 +142,12 @@ public class LocationSelector : MonoBehaviour
                 GoToGrandCanyon();
                 break;
 
+            case "Hong Kong, China":
+                GoToHongKong();
+                break;
+
             default:
-                GoToPhiladelphiaPennsylvaina();
+                GoToSanFran();
                 break;
         }
     }
@@ -230,6 +234,16 @@ public class LocationSelector : MonoBehaviour
         continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
         continuousMovement.SetSpeed(250f);
         continuousMovement.SetVerticalSpeed(75f);
+    }
+
+    public void GoToHongKong()
+    {
+        GetLocationByName("Hong Kong, China");
+
+        // Confirm reference to continuousMovement component before calling method within it
+        continuousMovement = continuousMovement ? continuousMovement : XROrigin.GetComponent<ContinuousMovement>();
+        continuousMovement.SetSpeed(50f);
+        continuousMovement.SetVerticalSpeed(15f);
     }
     
     #endregion

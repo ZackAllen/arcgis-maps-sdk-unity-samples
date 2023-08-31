@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 1451.4795, g: 1550.0059, b: 1780.4648, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1246,7 +1246,7 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Christchurch, New Zealand
     Type: 1
-    Source: C:\Users\Administrator\Desktop\SLPKs\ccbuildings_wgs84.slpk
+    Source: https://tiles.arcgis.com/tiles/pmcEyn9tLWCoX7Dm/arcgis/rest/services/ccbuildings_wgs84/SceneServer
     Opacity: 1
     IsVisible: 1
     Authentication:
@@ -1260,7 +1260,7 @@ MonoBehaviour:
       ConfigurationIndex: 0
   - Name: Montreal, Canada
     Type: 1
-    Source: C:\Users\Administrator\Desktop\SLPKs\Montreal_Buildings_v17_21778.slpk
+    Source: https://tiles.arcgis.com/tiles/z2tnIkrLQ2BRzr6P/arcgis/rest/services/Montreal_Buildings_v17_21778/SceneServer
     Opacity: 1
     IsVisible: 1
     Authentication:
@@ -1293,11 +1293,18 @@ MonoBehaviour:
     IsVisible: 1
     Authentication:
       ConfigurationIndex: 0
+  - Name: Hong Kong
+    Type: 1
+    Source: https://tiles.arcgis.com/tiles/6j1KwZfY2fZrfNMR/arcgis/rest/services/Buildings_L3_1/SceneServer
+    Opacity: 1
+    IsVisible: 1
+    Authentication:
+      ConfigurationIndex: 0
   originPosition:
-    x: -73.5674
-    y: 45.5019
+    x: 115.87
+    y: 22.302711
     z: 0
-    SRWkid: 4326
+    SRWkid: 3857
   mapType: 1
   editorModeEnabled: 1
   dataFetchWithSceneView: 1
@@ -1321,9 +1328,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_LocalPosition:
-    x: -8189485.506985075
+    x: 115.87
     y: 0
-    z: 5700884.498427296
+    z: 22.302711
   m_LocalRotation:
     value:
       x: 0
@@ -6302,7 +6309,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 278084793685871617, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_Name
-      value: PhiliButton
+      value: HongKongButton
       objectReference: {fileID: 0}
     - target: {fileID: 278084793685871618, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6314,7 +6321,7 @@ PrefabInstance:
       objectReference: {fileID: 1655736737}
     - target: {fileID: 278084793685871619, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: GoToPhiladelphiaPennsylvaina
+      value: GoToHongKong
       objectReference: {fileID: 0}
     - target: {fileID: 278084793721681911, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -6418,11 +6425,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 278084794430804969, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_text
-      value: Philadelphia, Pennsylvaina
+      value: Hong Kong, China
       objectReference: {fileID: 0}
     - target: {fileID: 278084794430804975, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_Name
-      value: PhiliText
+      value: HongKongText
       objectReference: {fileID: 0}
     - target: {fileID: 278084794949104072, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
       propertyPath: m_Name
