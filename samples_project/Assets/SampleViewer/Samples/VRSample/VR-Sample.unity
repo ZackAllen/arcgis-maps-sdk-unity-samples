@@ -320,6 +320,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1655736736}
     m_Modifications:
     - target: {fileID: 325419119, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: fadeColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 325419119, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: fadeDuration
       value: 2
       objectReference: {fileID: 0}
@@ -435,7 +439,8 @@ PrefabInstance:
       propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_LocomotionProvider
       value: 
       objectReference: {fileID: 681320081}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1551866155, guid: 71c126e43990139498b8761c71893200, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 71c126e43990139498b8761c71893200, type: 3}
 --- !u!4 &425022394 stripped
 Transform:
@@ -1062,11 +1067,6 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 7779212132400271959, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
---- !u!1 &650803850 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7674790538359957212, guid: 71c126e43990139498b8761c71893200, type: 3}
-  m_PrefabInstance: {fileID: 416216338}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &681320081 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3017294104001733366, guid: 7c54e74494ab92a47a490a7f58dc81c1, type: 3}
@@ -1088,34 +1088,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7674790538359957214, guid: 71c126e43990139498b8761c71893200, type: 3}
   m_PrefabInstance: {fileID: 416216338}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1406080827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 650803850}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29fa8e20d2ea3494ba5e896071262245, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  addressCardTemplate: {fileID: 0}
-  locationMarkerTemplate: {fileID: 0}
-  predictionRay: {fileID: 0}
-  locationMarkerScale: 1
-  raycastInput:
-    m_UseReference: 1
-    m_Action:
-      m_Name: Raycast Input
-      m_Type: 0
-      m_ExpectedControlType: 
-      m_Id: 12456f26-8447-4e1a-b785-df51cdff53b4
-      m_Processors: 
-      m_Interactions: 
-      m_SingletonActionBindings: []
-      m_Flags: 0
-    m_Reference: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1629020558
 GameObject:
   m_ObjectHideFlags: 1
@@ -1125,7 +1097,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1629020560}
-  - component: {fileID: 1629020559}
   m_Layer: 0
   m_Name: StaticLightingSky
   m_TagString: Untagged
@@ -1133,22 +1104,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1629020559
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1629020558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 441482e8936e35048a1dffac814e3ef8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Profile: {fileID: 0}
-  m_StaticLightingSkyUniqueID: 0
-  m_StaticLightingCloudsUniqueID: 0
-  m_StaticLightingVolumetricClouds: 0
 --- !u!4 &1629020560
 Transform:
   m_ObjectHideFlags: 1
@@ -1195,7 +1150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c703502c1493f5b4eb3e95b2efe0271e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: 
+  apiKey: AAPK2d7fbc74c0234e7d87853f9a7536a266jjADxHV7SDwJC-LQWIVQm_AD68b8QGuoVqWLgcrzANkVM0FOidizY4nERgOVi5fr
   basemap: https://www.arcgis.com/home/item.html?id=c7d2b5c334364e8fb5b73b0f4d6a779b
   basemapType: 0
   basemapAuthentication:
@@ -1365,6 +1320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efba25b03c2f1b546a077deb5926b972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menu: {fileID: 0}
 --- !u!1 &1876771625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,7 +1466,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b739a3f02ff77bf48b7636e64c3e3b4c, type: 2}
+  - {fileID: 2100000, guid: 390e4cd2892752947a172223b7821463, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -36,11 +36,11 @@ public struct coordinates
 
 public class LocationSelector : MonoBehaviour
 {
+    [SerializeField] private GameObject menu;
 
     private GameObject XROrigin;
     private ArcGISMapComponent arcGISMapComponent;
     private ContinuousMovement continuousMovement;
-    private GameObject menu;
     private GameObject menuManager;
 
     // List of coordinates to set to ArcGIS Map origin, leading to 3D city scene layers collected by Esri
@@ -55,7 +55,7 @@ public class LocationSelector : MonoBehaviour
         XROrigin = FindObjectOfType<XROrigin>().gameObject;
         arcGISMapComponent = FindObjectOfType<ArcGISMapComponent>();
         continuousMovement = XROrigin.GetComponent<ContinuousMovement>();
-        menu = GameObject.FindWithTag("VRCanvas");
+        menu = menu ? menu : GameObject.FindWithTag("VRCanvas");
         menuManager = FindObjectOfType<VRMenuManager>().gameObject;
 
         menu.SetActive(false);

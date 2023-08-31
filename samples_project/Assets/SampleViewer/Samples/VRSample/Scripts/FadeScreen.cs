@@ -60,7 +60,7 @@ public class FadeScreen : MonoBehaviour
         {
             newColor = fadeColor;
             newColor.a = Mathf.Lerp(alphaIn, alphaOut, timer / fadeDuration);
-            rendererComponent.material.SetColor("_UnlitColor", newColor);
+            rendererComponent.material.SetColor("_BaseColor", newColor);
             timer += Time.fixedDeltaTime;
             yield return null;
         }
@@ -68,7 +68,7 @@ public class FadeScreen : MonoBehaviour
         // To Confrim that the alpha finishes at the correct amount
         Color lastColor = fadeColor;
         lastColor.a = alphaOut;
-        rendererComponent.material.SetColor("_UnlitColor", lastColor);
+        rendererComponent.material.SetColor("_BaseColor", lastColor);
     }
 
     // Helper function to retrieve private variable
