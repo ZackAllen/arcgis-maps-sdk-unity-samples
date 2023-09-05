@@ -9,7 +9,7 @@ public class FadeScreen : MonoBehaviour
     [SerializeField] private Color fadeColor;
     [Min(0)] [SerializeField] private float fadeDuration = 2;
 
-    private Renderer rendererComponent;
+    [SerializeField] private Renderer rendererComponent;
 
     // Make Object into a Singleton
     public static FadeScreen Instance { get; private set; }
@@ -29,7 +29,7 @@ public class FadeScreen : MonoBehaviour
 
     private void Start()
     {
-        rendererComponent = GetComponent<Renderer>();
+        rendererComponent = rendererComponent ? rendererComponent : GetComponent<Renderer>();
     }
 
     public void FadeIn()
@@ -54,6 +54,7 @@ public class FadeScreen : MonoBehaviour
     {
         float timer = 0;
         Color newColor;
+        rendererComponent = rendererComponent ? rendererComponent : GetComponent<Renderer>();
 
         // While timer has not concluded, change material alpha using lerp
         while (timer <= fadeDuration)

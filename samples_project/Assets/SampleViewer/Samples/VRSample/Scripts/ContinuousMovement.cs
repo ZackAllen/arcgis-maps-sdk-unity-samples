@@ -31,9 +31,9 @@ public class ContinuousMovement : MonoBehaviour
 
     [Header("-------------Other-------------")]
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private GameObject menu;
 
     private float heightOffset = 0.2f;
-    private GameObject menu;
     private XROrigin rig;
 
     private void Start()
@@ -41,7 +41,7 @@ public class ContinuousMovement : MonoBehaviour
         // Cache component references
         controller = GetComponent<CharacterController>();
         rig = GetComponent<XROrigin>();
-        menu = GameObject.FindWithTag("VRCanvas");
+        menu = menu ? menu : GameObject.FindWithTag("VRCanvas");
     }
 
     private void FixedUpdate()

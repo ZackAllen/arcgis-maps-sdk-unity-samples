@@ -327,6 +327,10 @@ PrefabInstance:
       propertyPath: fadeDuration
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 325419119, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: rendererComponent
+      value: 
+      objectReference: {fileID: 2060428320}
     - target: {fileID: 416216342, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: m_InteractionManager
       value: 
@@ -367,6 +371,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Primary Button to Open Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
+      propertyPath: menu
+      value: 
+      objectReference: {fileID: 444516532}
     - target: {fileID: 7674790538359957209, guid: 71c126e43990139498b8761c71893200, type: 3}
       propertyPath: speed
       value: 50
@@ -446,6 +454,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7674790536996165079, guid: 71c126e43990139498b8761c71893200, type: 3}
   m_PrefabInstance: {fileID: 416216338}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &444516532 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 278084795472422201, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
+  m_PrefabInstance: {fileID: 278084795747258132}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &595183156
 GameObject:
@@ -1078,6 +1091,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919e39492806b334982b6b84c90dd927, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1343483564 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 278084794429006836, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
+  m_PrefabInstance: {fileID: 278084795747258132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1343483567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1343483564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 482749c8018bca147b40dd53a98bbd82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1377037080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7674790537069970955, guid: 71c126e43990139498b8761c71893200, type: 3}
@@ -1150,7 +1180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c703502c1493f5b4eb3e95b2efe0271e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: AAPK2d7fbc74c0234e7d87853f9a7536a266jjADxHV7SDwJC-LQWIVQm_AD68b8QGuoVqWLgcrzANkVM0FOidizY4nERgOVi5fr
+  apiKey: 
   basemap: https://www.arcgis.com/home/item.html?id=c7d2b5c334364e8fb5b73b0f4d6a779b
   basemapType: 0
   basemapAuthentication:
@@ -6224,6 +6254,11 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!23 &2060428320 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 325419120, guid: 71c126e43990139498b8761c71893200, type: 3}
+  m_PrefabInstance: {fileID: 416216338}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2065133452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6487,7 +6522,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.06659157
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 9070255091518812123, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1343483567}
+    - target: {fileID: 9070255091518812123, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetWeatherTypeFromIndex
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4821014543011762366, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b54178d1a7f47ed4190913f4f9f09680, type: 3}
 --- !u!1001 &7370234522989513129
 PrefabInstance:

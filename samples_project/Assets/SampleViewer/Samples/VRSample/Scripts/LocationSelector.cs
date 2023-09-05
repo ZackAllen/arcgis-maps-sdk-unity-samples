@@ -58,6 +58,7 @@ public class LocationSelector : MonoBehaviour
         menu = menu ? menu : GameObject.FindWithTag("VRCanvas");
         menuManager = FindObjectOfType<VRMenuManager>().gameObject;
 
+        menu.SetActive(true);
         menu.SetActive(false);
 
         // Get a random set of coordinates from the list to spawn user in unique location
